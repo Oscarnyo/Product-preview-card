@@ -11,6 +11,7 @@
 body{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     background: var(--Cream);
 }
 
@@ -22,9 +23,15 @@ body{
     height: 500px;
 }
 
-img{
+.deskImg{
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
+}
+
+.mobileImg{
+    display: none;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 .content{
@@ -62,7 +69,7 @@ p{
     color: var(--Dark-cyan);
 }
 
-span{
+#dcPrice{
     margin: 2em 2em;
     text-decoration: line-through;
     font-family: 'Montserrat', sans-serif;
@@ -71,10 +78,13 @@ span{
 }
 
 button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: var(--Dark-cyan);
     color: var(--White);
     border: none;
-    padding: 1em 6em;
+    padding: 1em 5.5em;
     border-radius: 10px;
     margin-top: 1.1em;
 }
@@ -85,13 +95,45 @@ button:hover{
 }
 
 button img{
-    padding-right: 0.225em;
+    margin-right: 1rem;
 }
 
 .attribution{
+    margin-top: 2~em;
     font-size: 11px; text-align: center;
 }
 
 .attribution a{
     color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (max-width: 375px){
+    .container{
+        display: block;
+        flex-direction: column;
+        max-width: 400px;
+        min-width: 300px;
+        margin: 1.5em 0.5em;
+    }
+    .deskImg{
+        display: none;
+    }
+    .mobileImg{
+        display: block;
+        max-width: 100%;
+    }
+    .content{
+        background: var(--White);
+        padding: 1.2em 1em;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+    
+    p{
+        font-size: 0.75rem;
+    }
+    
+    button{
+        padding: 1em 7em;
+    }
 }
